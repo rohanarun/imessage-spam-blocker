@@ -2,6 +2,8 @@
 
 A separate native SwiftUI Mac app. Uses Photon's MIT-licensed [iMessage Kit](https://github.com/photon-hq/imessage-kit) locally, Jev for semantic classification, and macOS's native sender block list. No SuperPowers app changes or Photon cloud account.
 
+Powered by [TypeSafe AI](https://typesafe.ai/) ([@typesafeai](https://x.com/typesafeai)) for Jev decisions, [OpenRouter](https://openrouter.ai/) ([@OpenRouter](https://x.com/OpenRouter)) for optional Jev API access, and [Photon Codes](https://photon.codes/) for its open-source local iMessage Kit.
+
 ![A verified live block in iMessage Spam Blocker](docs/screenshot.png)
 
 ## Download
@@ -60,10 +62,6 @@ QUIET_MESSAGES_SIGN_IDENTITY="Developer ID Application: Your Name (TEAMID)" \
 ```
 
 The script signs the embedded native SQLite module and Node runtime, enables hardened runtime, submits the DMG to Apple, requires an Accepted result, staples the ticket and checks Gatekeeper. No user API keys or message database are packaged.
-
-## Render hosting
-
-Create a Render Static Site from this public repository, use `python3 scripts/render-downloads.py` as the build command and `public` as the publish directory. The build downloads the notarized GitHub asset from `release.json` and verifies SHA-256 before publishing. No provider API keys or Mac permissions are needed for hosting.
 
 ## License
 
