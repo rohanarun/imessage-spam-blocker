@@ -6,11 +6,11 @@ A separate native SwiftUI Mac app. Uses Photon's MIT-licensed [iMessage Kit](htt
 
 ## Download
 
-[Download the notarized Apple Silicon DMG](https://github.com/rohanarun/imessage-spam-blocker/releases/download/v0.1.0/iMessage-Spam-Blocker-0.1.0-arm64.dmg). macOS 14 or later. Drag the app to Applications. Apple accepted the release for notarization; the DMG has a stapled ticket and passes Gatekeeper.
+[Download the notarized Apple Silicon DMG from Render](https://imessage-spam-blocker.onrender.com/iMessage-Spam-Blocker-0.1.0-arm64.dmg) or [GitHub Releases](https://github.com/rohanarun/imessage-spam-blocker/releases/tag/v0.1.0). macOS 14 or later. Drag the app to Applications. Apple accepted the release for notarization; the DMG has a stapled ticket and passes Gatekeeper.
 
 ## Run
 
-Open `dist/iMessage Spam Blocker.app`. Add **iMessage Spam Blocker** to System Settings → Privacy & Security → Full Disk Access, then quit/reopen. Enter your TypeSafe/Jev key or select OpenRouter and enter its key in Settings. Key edits save automatically to Keychain. Enable Accessibility for the app, then click Start protection. Protection runs while the app is open. It starts at first activation time, not your entire historical inbox; pauses are caught up when resumed.
+Open iMessage Spam Blocker from Applications. Add **iMessage Spam Blocker** to System Settings → Privacy & Security → Full Disk Access, then quit/reopen. Enter your TypeSafe/Jev key or select OpenRouter and enter its key in Settings. Key edits save automatically to Keychain. Enable Accessibility for the app, then click Start protection. Protection runs while the app is open. It starts at first activation time, not your entire historical inbox; pauses are caught up when resumed.
 
 Incoming text and recent sender context are transmitted to the selected provider: TypeSafe directly or OpenRouter/TypeSafe. API keys are in Keychain. Local records are at `~/Library/Application Support/QuietMessages/state.json` with owner-only permissions. The minimum confidence and polling interval are editable. The initial 95% threshold has not been calibrated on your inbox.
 
@@ -60,6 +60,10 @@ QUIET_MESSAGES_SIGN_IDENTITY="Developer ID Application: Your Name (TEAMID)" \
 ```
 
 The script signs the embedded native SQLite module and Node runtime, enables hardened runtime, submits the DMG to Apple, requires an Accepted result, staples the ticket and checks Gatekeeper. No user API keys or message database are packaged.
+
+## Render hosting
+
+Create a Render Static Site from this public repository, use `python3 scripts/render-downloads.py` as the build command and `public` as the publish directory. The build downloads the notarized GitHub asset from `release.json` and verifies SHA-256 before publishing. No provider API keys or Mac permissions are needed for hosting.
 
 ## License
 
