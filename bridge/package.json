@@ -1,0 +1,1 @@
+{"name":"quiet-messages-local-bridge","private":true,"type":"module","dependencies":{"@photon-ai/imessage-kit":"3.0.0","better-sqlite3":"^12.5.0"}}
